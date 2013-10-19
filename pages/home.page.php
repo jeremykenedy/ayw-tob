@@ -41,42 +41,6 @@ class Home_page extends BasePage{
 		} //end foreach
 	}
 
-	private function setAlerts(){
-		$data = $this->data;
-		$models = $this->models;
-		$data->addProp('alertCount', $models->event->getCountType('alert'));
-		$data->addProp('alerts', $models->event->getAllType('alert', 'created DESC'));
-		foreach ($data->alerts as $id => $event){
-			$data->alerts->{$id}->addProp(
-				'actions', 
-				new Data(
-					array(
-						"count" => $models->action->getCountByEvent($id),
-						"items" => $models->action->getAllByEvent($id)
-					) // close Data params array
-				) // close Data call
-			); // close addProp call
-		} //end foreach
-	}
-
-	private function setNotifications(){
-		$data = $this->data;
-		$models = $this->models;
-		$data->addProp('notificationCount', $models->event->getCountType('notification'));
-		$data->addProp('notifications', $models->event->getAllType('notification', 'created DESC'));
-		foreach ($data->notifications as $id => $event){
-			$data->notifications->{$id}->addProp(
-				'actions', 
-				new Data(
-					array(
-						"count" => $models->action->getCountByEvent($id),
-						"items" => $models->action->getAllByEvent($id)
-					) // close Data params array
-				) // close Data call
-			); // close addProp call
-		} //end foreach
-	}
-
 }
 
 ?>

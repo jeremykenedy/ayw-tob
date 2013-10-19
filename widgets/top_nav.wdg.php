@@ -5,7 +5,7 @@ $page = $red->page;
 
 <div id="mainNav" class="navbar navbar-inverse" role="navigation">
 	<div class="navbar-header">
-		<?php $page->linkTo(array("href" => "home", "class" => "navbar-brand"), $red->page->image('monitor.png', false, array('id' =>'navImage'))."Monitaur");?>
+		<?php $page->linkTo(array("href" => "home", "class" => "navbar-brand"), $red->page->image('friends.png', false, array('id' =>'navImage'))."<span class='nav-bar-brand-text'>trust.or.betray</span>");?>
 	</div>
   <?php
   if ($user->authenticated){ ?>

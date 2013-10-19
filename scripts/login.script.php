@@ -13,7 +13,7 @@ if (isset($attempt->username)){
 	$red->setSessionProp('user', $attempt);
 	$return['success'] = 1;	
 	$red->logEvent(
-		'www.allyourweb.net', 
+		SERVER.ROOT_NODE, 
 		'notification', 
 		'User has logged in', 
 		array(

@@ -9,7 +9,7 @@ switch(SERVER){
 	
 	case 'www.allyourweb.net':
 		define('DEV', false);
-		define('ROOT_NODE', "/ayw-tob/");
+		define('ROOT_NODE', "/tob/");
 		define('MYSQL_HOST',"ayw-web.allyourweb.net");
 		define('MYSQL_USER',"tob_user");
 		define('MYSQL_PASS', "tob_web");
@@ -20,7 +20,7 @@ switch(SERVER){
 	// my dev
 	case 'localhost':
 		define('DEV', true);
-		define('ROOT_NODE', "/tob/");
+		define('ROOT_NODE', "/ayw-tob/");
 		define('MYSQL_HOST',"127.0.0.1");
 		define('MYSQL_USER',"root");
 		define('MYSQL_PASS', "01dec2006");

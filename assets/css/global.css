@@ -1,0 +1,40 @@
+/** Bootstrap overrides **/
+.navbar-inverse {
+	background: #277fc6;
+	color: #FFF;
+	border-radius: 0px;
+}
+
+	.navbar-inverse .navbar-brand {
+		color: #FFF;
+	}
+
+	.navbar-inverse .navbar-brand:hover {
+		color: #333;
+		text-shadow: #777;
+	}
+
+		.navbar-inverse .navbar-brand .nav-bar-brand-text{
+			padding-left: 10px;
+		}
+
+.container {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+	.container .row{
+		
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+input[type=text],
+input[type=password]{
+	border: 1px solid #174c76;
+	color: #0b263b;
+}
+
+#navImage {
+	width: 50px;
+}

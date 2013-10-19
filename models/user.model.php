@@ -1,7 +1,7 @@
 <?php
 class User extends Database{
 	
-	const ALL_FIELDS = "id, display, username, password, access ";
+	const ALL_FIELDS = "id, username, password";
 
 	public function getAll(){
 		$sql = "
@@ -47,38 +47,34 @@ class User extends Database{
 		return  $this->processResults($results);
 	}
 
-	public function updateUser($id, $display, $username, $access){
+	public function updateUser($id, $username){
 		$sql = "
 			UPDATE users
-			SET display = ?, 
-			username = ?,
-			access = ?
+			SET username = ?
 			WHERE id = ?
 		";
-		$results = $this->execute($sql, array($display, $username, $access, $id));
+		$results = $this->execute($sql, array($username, $id));
 		return $results;
 	}
 
 	public function updateUserWithPassword($id, $display, $username, $access, $password){
 		$sql = "
 			UPDATE users
-			SET display = ?, 
-			username = ?,
-			access = ?,
+			SET username = ?,
 			password = ?
 			WHERE id = ?
 		";
-		$results = $this->execute($sql, array($display, $username, $access, $password, $id));
+		$results = $this->execute($sql, array($username, $password, $id));
 		return $results;
 	}
 
-	public function createUser($display, $username, $access, $password){
+	public function createUser($username, $password){
 		$sql = "
 			INSERT INTO users
-			(display, username, access, password) 
-			VALUES (?, ?, ?, ?);
+			(username, password) 
+			VALUES (?, ?,);
 		";
-		$results = $this->execute($sql, array($display, $username, $access, $password));
+		$results = $this->execute($sql, array($username, $password));
 		return $results;
 	}
 }

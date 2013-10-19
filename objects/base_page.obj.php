@@ -150,7 +150,7 @@ abstract class BasePage {
 	*/
 	public function formInput($type, $name, $value, $params = array()){
 		global $red;
-		$inputString = '<input type="'.$type.'" name="'.$name.'" value="'.$value.'" ';
+		$inputString = '<input type="'.$type.'" id="'.$name.'" name="'.$name.'" value="'.$value.'" ';
 		foreach ($params as $param => $value){
 			if ($param == 'href') {
 				$value = $red->rootNode.$value;
