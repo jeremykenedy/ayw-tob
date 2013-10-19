@@ -6,7 +6,7 @@ $root = str_replace('index.php','',str_replace('\\','/',__FILE__));
 
 include($root.'/objects/red.obj.php');
 $red = new Red();
-$red->show(SEVER);
+$red->show(SERVER);
 if ($red->data->session->user->authenticated){
 	$page = $red->router();
 }
