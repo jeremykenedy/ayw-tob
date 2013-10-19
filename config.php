@@ -7,7 +7,7 @@ define('MAPI_URL', 'www.allyourweb.net/monitaur/api');
 // Server Specific
 switch(SERVER){
 	
-	case 'www.allyourweb.net':
+	case 'allyourweb.net':
 		define('DEV', false);
 		define('ROOT_NODE', "/tob/");
 		define('MYSQL_HOST',"ayw-web.allyourweb.net");
