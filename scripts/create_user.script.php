@@ -1,21 +1,32 @@
 <?php
 global $red;
 
-$display = $_POST['new_display'];
-$username = $_POST['new_username'];
-$access = strtolower($_POST['new_access']);
-$password = md5($_POST['new_password']);
+$username = $_POST['username'];
+$email = $_POST['email'];
+$password = md5($_POST['password']);
 
 $red->fetchModel('user');
 $user = new User();
 
-try {	
-	$update = $user->createUser($display, $username, $access, $password);
-	$return['success'] = 1;
+try {
+	$nameCheck = $user->getByUsername($username);
+	$emailCheck = $user->getByEmail($email);
+	if (count((array)$nameCheck)){
+		$return['success'] = 0;
+		$return['message'] = 'username.already.in.use';
+	}
+	elseif (count((array)$emailCheck)){
+		$return['success'] = 0;
+		$return['message'] = 'email.already.in.use';
+	}
+	else {	
+		$update = $user->createUser($username, $email, $password);
+		$return['success'] = 1;
+	}
 }
 catch (Exception $e) {
 	$return['success'] = 0;
-	$return['message'] = 'Error creating user';
+	$return['message'] = 'error.creating.user';
 	$return['error'] = $e->getMessage();
 }
 

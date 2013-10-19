@@ -11,6 +11,9 @@ if ($red->data->session->user->authenticated){
 }
 else {
 	switch($red->getNode(1)){
+		case 'signup':
+			$page = 'signup';
+			break;
 		default: 
 			$page = 'login';
 			break;

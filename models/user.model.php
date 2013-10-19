@@ -1,7 +1,7 @@
 <?php
 class User extends Database{
 	
-	const ALL_FIELDS = "id, username, password";
+	const ALL_FIELDS = "id, username, email, password";
 
 	public function getAll(){
 		$sql = "
@@ -47,34 +47,47 @@ class User extends Database{
 		return  $this->processResults($results);
 	}
 
-	public function updateUser($id, $username){
+	public function getByEmail($email){
 		$sql = "
-			UPDATE users
-			SET username = ?
-			WHERE id = ?
+				SELECT
+					".$this::ALL_FIELDS."
+				 FROM users
+				 WHERE email = ?
 		";
-		$results = $this->execute($sql, array($username, $id));
-		return $results;
+		$results = $this->query($sql, array($email));
+		return  $this->processResults($results);
 	}
 
-	public function updateUserWithPassword($id, $display, $username, $access, $password){
+	public function updateUser($id, $username, $email){
 		$sql = "
 			UPDATE users
 			SET username = ?,
-			password = ?
+			email = ?
 			WHERE id = ?
 		";
-		$results = $this->execute($sql, array($username, $password, $id));
+		$results = $this->execute($sql, array($username, $email, $id));
 		return $results;
 	}
 
-	public function createUser($username, $password){
+	public function updateUserWithPassword($id, $username, $email, $password){
+		$sql = "
+			UPDATE users
+			SET username = ?,
+			email = ?,
+			password = ?
+			WHERE id = ?
+		";
+		$results = $this->execute($sql, array($username, $email, $password, $id));
+		return $results;
+	}
+
+	public function createUser($username, $email, $password){
 		$sql = "
 			INSERT INTO users
-			(username, password) 
-			VALUES (?, ?,);
+			(username, email, password) 
+			VALUES (?, ?, ?);
 		";
-		$results = $this->execute($sql, array($username, $password));
+		$results = $this->execute($sql, array($username, $email, $password));
 		return $results;
 	}
 }

@@ -18,6 +18,14 @@
 			padding-left: 10px;
 		}
 
+	.navbar-inverse .navbar-nav>li>a {
+		color: #FFF;
+	}
+
+		.navbar-inverse .navbar-nav>li>a:hover {
+			color: #333;
+		}
+
 .container {
 	margin-top: 5px;
 	margin-bottom: 5px;
