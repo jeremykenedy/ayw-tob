@@ -6,27 +6,7 @@ $root = str_replace('index.php','',str_replace('\\','/',__FILE__));
 
 include($root.'/objects/red.obj.php');
 $red = new Red();
-$mail = $red->toolkit->initializeEmail();
-$mail->addAddress('tattedweazel@gmail.com');
-$mail->Subject = 'Test Mail';
-$mail->Body = 'testing';
-try {
-	if(!$mail->send()){
-		echo 'error sending mail';
-	}
-	else {
-		echo 'mail sent';
-		echo '<pre>';
-		print_r($mail);
-		echo '</pre>';
-
-	}
-}
-catch (Exception $e){
-	echo '<pre>';
-	print_r($e);
-	echo '</pre>';
-}
+$red->toolkit->sendMail('tattedweazel@gmail.com', 'Final Test', 'Testing my email send capabilities');
 if ($red->data->session->user->authenticated){
 	$page = $red->router();
 }

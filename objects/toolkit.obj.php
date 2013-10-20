@@ -46,6 +46,29 @@ class Toolkit {
 
 		return $mail;
 	}
+
+	public function sendMail($to, $subject, $body, $bcc = array()){
+		$mail = $this->initializeEmail();
+		$mail->addAddress($to);
+		$mail->Subject = $subject;
+		$mail->Body = $body;
+		foreach ($cc as $recipient){
+			$mail->addBCC($recipient);
+		}
+		try {
+			if(!$mail->send()){
+				return false
+				//todo integrate monitaur hook
+			}
+			else {
+				return true;
+			}
+		}
+		catch (Exception $e){
+			return false;
+			//todo integrate monitaur hook
+		}
+	}
 }
 
 ?>
