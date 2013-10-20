@@ -15,6 +15,7 @@ define('MAIL_FROM_NAME', 'trust.or.betray');
 switch(SERVER){
 	
 	case 'allyourweb.net':
+	case 'www.allyourweb.net':
 		define('DEV', false);
 		define('ROOT_NODE', "/tob/");
 		define('MYSQL_HOST',"ayw-web.allyourweb.net");
