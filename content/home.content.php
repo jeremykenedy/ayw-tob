@@ -13,10 +13,10 @@ $page = $red->page;
 			<div class="jumbotron">
 			  <div class="container">
 			  	<div class="row text-center">
-			  		<div class="col-md-6">
+			  		<div class="col-xs-6">
 			    		<?php echo $page->linkTo(array('href' => '', 'class' => 'btn btn-primary btn-lg'), 'create.game');?>
 			    	</div>
-		    		<div class="col-md-6">
+		    		<div class="col-xs-6">
 			    		<?php echo $page->linkTo(array('href' => '', 'class' => 'btn btn-primary btn-lg'), 'join.game');?>
 			    	</div>
 			    </div>
