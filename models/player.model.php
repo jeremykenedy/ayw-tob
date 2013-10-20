@@ -10,6 +10,7 @@ class Player extends Database{
 					p.user_fk as user_fk,
 					p.game_fk as game_fk,
 					p.points as points,
+					p.active as active,
 					u.username as name,
 					u.alignment as alignment
 				FROM 
@@ -34,6 +35,7 @@ class Player extends Database{
 					p.user_fk as user_fk,
 					p.game_fk as game_fk,
 					p.points as points,
+					p.active as active,
 					u.username as name,
 					u.alignment as alignment
 				FROM 
@@ -44,6 +46,8 @@ class Player extends Database{
 		 			p.user_fk = u.id
 			 	WHERE
 			 		game_fk = ?
+		 		AND
+		 			active = 1
 		";
 		$results = $this->query($sql, array($gameId));
 		return  $this->processResults($results);
@@ -53,9 +57,9 @@ class Player extends Database{
 		$sql = "
 				INSERT INTO
 					players
-						(user_fk, game_fk)
+						(user_fk, game_fk, active)
 				VALUES
-					(?, ?)
+					(?, ?, 1)
 		";
 		$success = $this->execute($sql, array($userId, $gameId));
 		return $success;
@@ -63,8 +67,10 @@ class Player extends Database{
 
 	public function removePlayer($player, $game){
 		$sql = "
-				DELETE FROM
+				UPDATE
 					players
+				SET
+					active = 0
 				WHERE
 					user_fk = ?
 				AND
@@ -76,9 +82,26 @@ class Player extends Database{
 
 	public function removeAllPlayers($game){
 		$sql = "
-				DELETE FROM
+				UPDATE
 					players
+				SET
+					active = 0
 				WHERE
+					game_fk = ?
+		";
+		$success = $this->execute($sql, array($game));
+		return $success;
+	}
+
+	public function updateActive($playerId, $gameId){
+		$sql = "
+				UPDATE
+					players
+				SET
+					active = 1
+				WHERE
+					user_fk = ?
+				AND
 					game_fk = ?
 		";
 		$success = $this->execute($sql, array($game));

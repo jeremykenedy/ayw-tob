@@ -23,11 +23,20 @@ class Game_page extends BasePage{
 		$player = new Player();
 		
 		$currentPlayerId = $red->data->session->user->id;
+
 		$currentPlayer = $player->getCurrentPlayer($currentPlayerId, $currentGameId);
 		if (!$currentPlayer->id){
-			if ($this->data->currentGame->status != 'playing'){
+			if ($this->data->currentGame->status == 'waiting'){
 				$player->newPlayer($currentPlayerId, $currentGameId);
 				$currentPlayer = $player->getCurrentPlayer($currentPlayerId, $currentGameId);
+			}
+		}
+		else {
+			if ($currentPlayer->active == 0){
+				if ($this->data->currentGame->status == 'waiting'){
+					$player->updateActive($currentPlayerId, $currentGameId);
+					$currentPlayer->active = 1;
+				}
 			}
 		}
 		$this->data->addProp('currentPlayer', $currentPlayer);
