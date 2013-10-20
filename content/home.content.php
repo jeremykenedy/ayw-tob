@@ -17,7 +17,7 @@ $page = $red->page;
 			    		<?php echo $page->linkTo(array("data-toggle"=> "modal", "href" => "#create_game_modal", 'class' => 'btn btn-success btn-lg '), 'create.game');?>
 			    	</div>
 		    		<div class="col-xs-6">
-			    		<?php echo $page->linkTo(array("data-toggle"=> "modal", "href" => "#join_game_modal", 'class' => 'btn btn-info btn-lg'), 'join.game');?>
+			    		<?php echo $page->linkTo(array("id" => "search_games", 'class' => 'btn btn-info btn-lg'), 'join.game');?>
 			    	</div>
 			    </div>
 			  </div>

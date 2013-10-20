@@ -12,6 +12,10 @@ $(document).ready(function(){
 		e.preventDefault();
 		joinGame();
 	});
+
+	$("#search_games").on('click', function(){
+		updateGameList();
+	});
 });
 
 function createGame(){
@@ -42,6 +46,20 @@ function joinGame(){
 			}
 			else {
 				alert(data.message);
+			}
+		},
+		"json"
+	);
+}
+
+function updateGameList(){
+	$("#join_game_modal").modal("show");
+	$.post(
+		$("#url").val()+"scripts/update_game_list.script.php",
+		{},
+		function(data){
+			if (data.success == 1){
+				$("#join_game").html(data.html);
 			}
 		},
 		"json"
