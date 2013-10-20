@@ -4,7 +4,7 @@ global $red;
 $player = $_POST['player'];
 $game = $_POST['game'];
 
-$red->fetchObject('player');
+$red->fetchModel('player');
 $player = new Player();
 
 $player->removePlayer($player, $game);
