@@ -7,9 +7,9 @@ $gameId = $_POST['game'];
 $red->fetchModel('player');
 $player = new Player();
 
-$player->removePlayer($playerId, $gameId);
+if ($player->removePlayer($playerId, $gameId)){
+	$return = array('success' => 1);
+	echo json_encode($return);
+}
 
-$return = array('success' => 1);
-
-echo json_encode($return);
 ?>
