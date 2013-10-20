@@ -85,6 +85,7 @@ $page = $red->page;
               </div>
               <div class="col-md-9 col-xs-12">
                 <select id="join_game" name="join_game">
+                  <option value="">select.a.game</option>
                 	<?php
                 	foreach ($page->data->joinable as $game){ ?>
                 		<option value="<?php echo $game->code;?>"><?php echo $game->name;?></option>
