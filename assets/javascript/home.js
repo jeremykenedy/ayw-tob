@@ -40,22 +40,23 @@ function joinGame(){
 	var game = $("#join_game").val();
 	if (game.length < 1){
 		updateGameList();
-		return false;
 	}
-	$.post(
-		$("#url").val()+"scripts/join_game.script.php",
-		{code: game},
-		function(data){
-			if (data.success == 1){
-				window.location.href = data.gameURL;
-			}
-			else {
-				alert(data.message);
-				updateGameList();
-			}
-		},
-		"json"
-	);
+	else{
+		$.post(
+			$("#url").val()+"scripts/join_game.script.php",
+			{code: game},
+			function(data){
+				if (data.success == 1){
+					window.location.href = data.gameURL;
+				}
+				else {
+					alert(data.message);
+					updateGameList();
+				}
+			},
+			"json"
+		);
+	}
 }
 
 function updateGameList(){
