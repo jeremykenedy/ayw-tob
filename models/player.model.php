@@ -104,7 +104,7 @@ class Player extends Database{
 				AND
 					game_fk = ?
 		";
-		$success = $this->execute($sql, array($game));
+		$success = $this->execute($sql, array($playerId, $gameId));
 		return $success;
 	}
 }
