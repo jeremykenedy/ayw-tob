@@ -7,7 +7,7 @@ $games = $game->getJoinable();
 
 $return['html'] = '<option value="">select.a.game</option>';
 foreach($games as $gme){
-	$return['html'] .= '<option value="'.$gme->code.'">'.$gme->name.'</option>';
+	$return['html'] .= '<option value="'.$gme->code.'" selected="selected">'.$gme->name.'</option>';
 }
 if ($return['html'] != ""){
 	$return ['success'] = 1;
