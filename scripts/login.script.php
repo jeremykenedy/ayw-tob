@@ -24,7 +24,7 @@ if (isset($attempt->username)){
 }
 else {
 	$return['success'] = 0;
-	$return['message'] = 'Invalid User Credentials';
+	$return['message'] = 'incorrect.username.or.password';
 }
 
 

@@ -15,6 +15,9 @@ function handleLogin(){
 				if (data.success == 1){
 					window.location.href = "home";
 				}
+				else {
+					alert(data.message);
+				}
 			},
 			"json"
 		);
