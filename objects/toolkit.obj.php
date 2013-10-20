@@ -28,6 +28,24 @@ class Toolkit {
 	    }
 	    return $string;
 	}
+
+	public function initializeEmail(){
+		require_once('PHPMailerAutoload.php');
+
+		$mail = new PHPMailer(true);
+
+		$mail->isSMTP();                                      	// Set mailer to use SMTP
+		$mail->Host = SMTP_HOST;  								// Specify main and backup server
+		$mail->SMTPAuth = true;                             	// Enable SMTP authentication
+		$mail->Username = SMTP_USER;                            // SMTP username
+		$mail->Password = SMTP_PASS;                           	// SMTP password
+		$mail->SMTPSecure = 'tls';                           	// Enable encryption, 'ssl' also accepted
+
+		$mail->From = MAIL_FROM;
+		$mail->FromName = MAIL_FROM_NAME;
+
+		return $mail;
+	}
 }
 
 ?>
