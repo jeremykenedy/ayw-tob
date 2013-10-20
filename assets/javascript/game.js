@@ -15,6 +15,9 @@ $(document).ready(function(){
 			}
 		}
 	});
+
+	playerRefresh();
+	stateWatcher();
 });
 
 function closeGame(){
@@ -41,4 +44,37 @@ function quitGame(){
 		},
 		"json"
 	);
+}
+
+function playerRefresh(){
+	if ($("#game_state").val() == 'waiting'){
+		$.post(
+			$("#url").val()+"scripts/update_players.script.php",
+			{game: $("#game_id").val()},
+			function(data){
+				if (data.success == 1){
+					$("#players").html(data.html);
+				}
+				setTimeout('playerRefresh()', 5000);
+			},
+			"json"
+		);
+	}
+}
+
+function stateWatcher(){
+	var state = $("#game_state");
+	if ( state.val() == 'waiting'){
+		$.post(
+			$("#url").val()+"scripts/update_state.script.php",
+			{game: $("#game_id").val()},
+			function(data){
+				if (data.success == 1){
+					state.val(data.state);
+				}
+				setTimeout('stateWatcher()', 3000);
+			},
+			"json"
+		);
+	}
 }

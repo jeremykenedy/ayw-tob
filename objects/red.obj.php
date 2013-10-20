@@ -264,7 +264,6 @@ class Red {
 
 	public function startSession(){
 		session_start();
-		session_regenerate_id(true);
 		date_default_timezone_set("America/Phoenix");
 	} 
 
