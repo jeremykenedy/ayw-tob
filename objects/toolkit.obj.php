@@ -84,6 +84,7 @@ class Toolkit {
 			return false;
 		}
 		$red->fetchModel('user');
+		$user = new User();
 		$user->updateUserWithPassword($id, $username, $email, $randomPassword);
 		return true;
 	}
