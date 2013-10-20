@@ -15,6 +15,10 @@ $(document).ready(function(){
 			}
 		}
 	});
+
+	if ($("#game_state").val() == 'waiting'){
+		setTimeout(function(){location.reload()},5000);
+	}
 });
 
 function closeGame(){

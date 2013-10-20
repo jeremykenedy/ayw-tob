@@ -17,6 +17,7 @@ if ($authorized){
 	?>
 	<input type="hidden" id="player_id" value="<?php echo $player->id;?>"/>
 	<input type="hidden" id="game_id" value="<?php echo $game->id;?>" />
+	<input type="hidden" id="game_state" value="<?php echo $game->status;?>" />
 	<?php 
 	if ($game->status == 'waiting'){ ?>
 		<div class="container">
