@@ -22,7 +22,9 @@ function closeGame(){
 		$("#url").val()+"scripts/close_game.script.php",
 		{game: $("#game_id").val()},
 		function(data){
-			window.location.href = $("#url").val()+"home";
+			if (data.success == 1){
+				window.location.href = $("#url").val()+"home";
+			}
 		},
 		"json"
 	);
@@ -33,7 +35,9 @@ function quitGame(){
 		$("#url").val()+"scripts/quit_game.script.php",
 		{player: $("#player_id").val(), game: $("#game_id").val()},
 		function(data){
-			window.location.href = $("#url").val()+"home";
+			if (data.success == 1){
+				window.location.href = $("#url").val()+"home";
+			}
 		},
 		"json"
 	);
