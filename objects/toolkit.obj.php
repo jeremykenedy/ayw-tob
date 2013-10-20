@@ -57,7 +57,6 @@ class Toolkit {
 		}
 		try {
 			if(!$mail->send()){
-				echo 'mail fail';
 				return false;
 				//todo integrate monitaur hook
 			}
@@ -66,7 +65,6 @@ class Toolkit {
 			}
 		}
 		catch (Exception $e){
-			echo 'super mail fail';
 			return false;
 			//todo integrate monitaur hook
 		}
