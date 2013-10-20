@@ -18,7 +18,14 @@ $(document).ready(function(){
 });
 
 function closeGame(){
-
+	$.post(
+		$("#url").val()+"scripts/close_game.script.php",
+		{game: $("#game_id").val()},
+		function(data){
+			window.location.href = $("#url").val()+"home";
+		},
+		"json"
+	);
 }
 
 function quitGame(){

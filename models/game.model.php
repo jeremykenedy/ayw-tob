@@ -78,4 +78,17 @@ class Game extends Database{
 		$success = $this->execute($sql, array($code, $name, $created, $status, $owner_fk, $public));
 		return $success;
 	}
+
+	public function closeGame($gameId){
+		$sql = "
+				UPDATE
+					games
+				SET
+					status = 'closed'
+				WHERE
+					id = ?
+		";
+		$success = $this->execute($sql, array($gameId));
+		return $success;
+	}
 }

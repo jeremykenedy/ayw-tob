@@ -25,8 +25,10 @@ class Game_page extends BasePage{
 		$currentPlayerId = $red->data->session->user->id;
 		$currentPlayer = $player->getCurrentPlayer($currentPlayerId, $currentGameId);
 		if (!$currentPlayer->id){
-			$player->newPlayer($currentPlayerId, $currentGameId);
-			$currentPlayer = $player->getCurrentPlayer($currentPlayerId, $currentGameId);
+			if ($this->data->currentGame->status != 'playing'){
+				$player->newPlayer($currentPlayerId, $currentGameId);
+				$currentPlayer = $player->getCurrentPlayer($currentPlayerId, $currentGameId);
+			}
 		}
 		$this->data->addProp('currentPlayer', $currentPlayer);
 
