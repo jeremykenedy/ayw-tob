@@ -9,7 +9,7 @@ if ($player->id){
 }
 
 $owner = 'no';
-if ($plaery->id == $game->owner_fk){
+if ($red->data->session->user->id == $game->owner_fk){
 	$owner = 'yes';
 }
 
