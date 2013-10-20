@@ -37,14 +37,14 @@ function createGame(){
 }
 
 function joinGame(){
-	var game = $("#join_game").val();
-	if (game.length < 1){
+	var game = $("#join_game");
+	if (game.val().length < 1){
 		updateGameList();
 	}
 	else{
 		$.post(
 			$("#url").val()+"scripts/join_game.script.php",
-			{code: game},
+			{code: game.val()},
 			function(data){
 				if (data.success == 1){
 					window.location.href = data.gameURL;
