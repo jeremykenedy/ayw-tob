@@ -22,7 +22,7 @@ $(document).ready(function(){
 		writeMessage();
 	});
 
-	$("#say_buttion").on("click", function(){
+	$("#say_button").on("click", function(){
 		writeMessage();
 	});
 
