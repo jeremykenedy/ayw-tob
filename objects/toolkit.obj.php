@@ -75,7 +75,7 @@ class Toolkit {
 		global $red;
 		$randomPassword = $this->generateRandomPassword();
 		$subject = "password.reset.request";
-		$body = '<p> your.password.at <a href="http://www.allyourweb.net/tob">trust.or.betray</a> has.been.reset</p>';
+		$body = '<p> your.password.has.been.reset</p>';
 		$body .= '<p>please <a href="http://www.allyourweb.net/tob/login">log-in</a> using.the.following:</p><br/><br/>';
 		$body .= "<p>username: $username</p>";
 		$body .= "<p>password: <b>$randomPassword</b></p><br/><br/>";
