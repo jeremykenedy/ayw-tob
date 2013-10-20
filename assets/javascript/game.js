@@ -1,3 +1,5 @@
+var chatTimeout;
+
 $(document).ready(function(){
 	$("#refresh_list").on('click', function(){
 		window.location.reload();
@@ -16,8 +18,17 @@ $(document).ready(function(){
 		}
 	});
 
+	$("#say_something").on("submit", function(){
+		writeMessage();
+	});
+
+	$("#say_buttion").on("click", function(){
+		writeMessage();
+	});
+
 	playerRefresh();
 	stateWatcher();
+	refreshChat();
 });
 
 function closeGame(){
@@ -80,4 +91,36 @@ function stateWatcher(){
 			"json"
 		);
 	}
+}
+
+function writeMessage(){
+	var message = $("#say_this");
+	if (validateForm('say_something')){
+		$.post(
+			$("#url").val()+"scripts/write_message.script.php",
+			{playerId: $("#player_id").val(), gameId: $("$game_id").val(), message: message.val()},
+			function(data){
+				if (data.success == 1){
+					message.val("");
+					refreshChat();
+				}
+			},
+			"json"
+		);
+	}
+}
+
+function refreshChat(){
+	clearTimeout(chatTimeout);
+	$.post(
+		$("url").val()+"scripts/update_messages.script.php",
+		{game: $("#game_id")}
+		function(data){
+			if (data.success == 1){
+				$("#chat_messages").html(data.html);
+			}
+			chatTimeout = setTimeout("refreshChat()", 2000);
+		},
+		"json"
+	);
 }

@@ -43,6 +43,10 @@ class Game_page extends BasePage{
 
 		$this->data->addProp('players', $player->getAllPlayers($this->data->currentGame->id));
 		
+		$this->loadModel('game_message');
+		$message = new Game_message();
+		$messages = $message->getAll($currentGameId);
+		$this->data->addProp('messages', $messages);
 
 
 		// finalize and show
