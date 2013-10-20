@@ -66,8 +66,9 @@ if ($authorized){
 	if ($game->status == 'closed'){ ?>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4 col-md-offset-4 col-xs-12">
+				<div class="col-md-4 col-md-offset-4 col-xs-12 text-center">
 					<h2>game.closed.by.host</h2>
+					<?php echo $page->linkTo(array("href" => "home", "class" => "btn btn-primary btn-lg"), "home");
 				</div>
 			</div>
 		</div>
@@ -77,8 +78,9 @@ if ($authorized){
 else{ ?>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 col-md-offset-4 col-xs-12">
+			<div class="col-md-4 col-md-offset-4 col-xs-12 text-center">
 				<h2>you.are.not.authorized.to.be.here</h2>
+				<?php echo $page->linkTo(array("href" => "home", "class" => "btn btn-primary btn-lg"), "home");
 			</div>
 		</div>
 	</div>
