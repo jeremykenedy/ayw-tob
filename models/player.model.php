@@ -81,7 +81,7 @@ class Player extends Database{
 				WHERE
 					game_fk = ?
 		";
-		$success = $this->execute($sql, array($player, $game));
+		$success = $this->execute($sql, array($game));
 		return $success;
 	}
 }
