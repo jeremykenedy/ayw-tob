@@ -20,7 +20,7 @@ switch(SERVER){
 		define('MYSQL_HOST',"ayw-web.allyourweb.net");
 		define('MYSQL_USER',"tob_user");
 		define('MYSQL_PASS', "tob_web");
-		define('MYSQL_DB',"tob");
+		define('MYSQL_DB',"ayw_tob");
 
 		break;
 
