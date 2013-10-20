@@ -52,12 +52,12 @@ class Toolkit {
 		$mail->addAddress($to);
 		$mail->Subject = $subject;
 		$mail->Body = $body;
-		foreach ($cc as $recipient){
+		foreach ($bcc as $recipient){
 			$mail->addBCC($recipient);
 		}
 		try {
 			if(!$mail->send()){
-				return false
+				return false;
 				//todo integrate monitaur hook
 			}
 			else {
