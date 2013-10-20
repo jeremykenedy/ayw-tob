@@ -71,7 +71,8 @@ class Toolkit {
 		}
 	}
 
-	public function sendResetEmail($email, $username){
+	public function sendResetEmail($email, $username, $id){
+		global $red;
 		$randomPassword = $this->generateRandomPassword();
 		$subject = "password.reset.request";
 		$body = '<p>your.password.at.<a href="http://www.allyourweb.net/tob">trust.or.betray</a>.has.been.reset</p>';
@@ -82,6 +83,8 @@ class Toolkit {
 		if (!$this->sendMail($email, $subject, $body)){
 			return false;
 		}
+		$red->fetchModel('user');
+		$user->updateWithPassword($id, $username, $email, $randomPassword);
 		return true;
 	}
 

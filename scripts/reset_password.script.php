@@ -9,7 +9,7 @@ $user = new User();
 $emailCheck = reset($user->getByEmail($email));
 
 if ($emailCheck->email){
-	if ($red->toolkit->sendResetEmail($emailCheck->email, $emailCheck->username)){
+	if ($red->toolkit->sendResetEmail($emailCheck->email, $emailCheck->username, $emailCheck->id)){
 		$return['success'] = 1;
 	}
 	else {
