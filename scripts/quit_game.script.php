@@ -7,7 +7,7 @@ $gameId = $_POST['game'];
 $red->fetchModel('player');
 $player = new Player();
 
-$player->removePlayer($playerId, $game);
+$player->removePlayer($playerId, $gameId);
 
 $return = array('success' => 1);
 
