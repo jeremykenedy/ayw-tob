@@ -60,5 +60,18 @@ class Player extends Database{
 		$success = $this->execute($sql, array($userId, $gameId));
 		return $success;
 	}
+
+	public function removePlayer($player, $game){
+		$sql = "
+				DELETE FROM
+					players
+				WHERE
+					user_fk = ?
+				AND
+					game_fk = ?
+		";
+		$success = $this->execute($sql, array($player, $game));
+		return $success;
+	}
 }
 ?>

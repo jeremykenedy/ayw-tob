@@ -4,12 +4,30 @@ $(document).ready(function(){
 	});
 
 	$("#quit_game").on('click', function(){
-		if (confirm("this.will.remove.this.game\nis.that.ok?")){
-			closeGame();
+		if ($(this).attr('data-owner') == 'yes'){
+			if (confirm("this.will.close.this.game\nis.that.ok?")){
+				closeGame();
+			}
+		}
+		else {
+			if (confirm("quit.this.game?")){
+				quitGame();
+			}
 		}
 	});
 });
 
 function closeGame(){
 
+}
+
+function quitGame(){
+	$.post(
+		$("#url").val()+"scripts/quit_game.script.php",
+		{player: $("#player_id").val(), game: $("#game_id").val()},
+		function(data){
+			window.location.href = $("#url").val()+"home";
+		},
+		"json"
+	);
 }

@@ -3,7 +3,15 @@ $page = $red->page;
 $game = $page->data->currentGame;
 $player = $page->data->currentPlayer;
 $players = $page->data->players;
+
+$owner = 'no';
+if ($plaery->id == $game->owner_fk){
+	$owner = 'yes';
+}
+
 ?>
+<input type="hidden" id="player_id" value="<?php echo $player->id;?>"/>
+<input type="hidden" id="game_id" value="<?php echo $game->id;?>" />
 <?php 
 if ($game->status == 'waiting'){ ?>
 	<div class="container">
@@ -36,7 +44,7 @@ if ($game->status == 'waiting'){ ?>
 						<div class="row visible-xs visible-sm">
 						</div>
 						<div class="row">
-							<span id="quit_game" class="col-xs-6 col-md-12 btn btn-danger btn-lg">quit</span>
+							<span id="quit_game" data-owner="<?php echo $owner;?>" class="col-xs-6 col-md-12 btn btn-danger btn-lg">quit</span>
 						</div>
 					</div>
 				</div>
