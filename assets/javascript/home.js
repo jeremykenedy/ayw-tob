@@ -67,7 +67,7 @@ function updateGameList(){
 		function(data){
 			if (data.success == 1){
 				$("#join_game").html(data.html);
-				$("#join_game").focus();
+				$("#join_game").click();
 			}
 		},
 		"json"
