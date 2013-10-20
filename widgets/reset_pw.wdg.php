@@ -25,7 +25,7 @@ $page = $red->page;
                 email
               </div>
               <div class="col-md-12 col-xs-12">
-                <?php echo $page->formInput('email', 'email_reset', 'test', array('class' => 'required', 'data-req' => 'email', 'autocomplete' => 'off'));?>
+                <?php echo $page->formInput('email', 'email_reset', '', array('class' => 'required', 'data-req' => 'email', 'autocomplete' => 'off'));?>
               </div>
             </div>
           </div>
