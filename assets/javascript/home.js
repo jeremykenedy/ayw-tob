@@ -39,6 +39,7 @@ function createGame(){
 function joinGame(){
 	var game = $("#join_game").val();
 	if (game.length < 1){
+		updateGameList();
 		return false;
 	}
 	$.post(
@@ -50,6 +51,7 @@ function joinGame(){
 			}
 			else {
 				alert(data.message);
+				updateGameList();
 			}
 		},
 		"json"
