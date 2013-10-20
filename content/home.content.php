@@ -81,8 +81,6 @@ $page = $red->page;
           <div class="container">
             <div class="row">
               <div class="col-md-3 col-xs-12">
-              	<?php
-              	if (count((array)$page->data->joinable) > 0){ ?>
                 select.a.game
               </div>
               <div class="col-md-9 col-xs-12">
@@ -93,23 +91,13 @@ $page = $red->page;
                 	<?php
                 	} ?>
                 </select>
-                <?php
-            	}
-            	else { ?>
-            		there.are.no.games.to.join
-        		<?php
-            	}?>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">nevermind</button>
-          <?php
-  			if (count((array)$page->data->joinable) > 0){ ?>
-          		<button id="join_button" type="button" class="btn btn-primary">join</button>
-      		<?php
-      		} ?>
+          <button id="join_button" type="button" class="btn btn-primary">join</button>
         </div>
       </form>
     </div><!-- /.modal-content -->
