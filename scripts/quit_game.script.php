@@ -1,13 +1,13 @@
 <?php
 global $red;
 
-$player = $_POST['player'];
-$game = $_POST['game'];
+$playerId = $_POST['player'];
+$gameId = $_POST['game'];
 
 $red->fetchModel('player');
 $player = new Player();
 
-$player->removePlayer($player, $game);
+$player->removePlayer($playerId, $game);
 
 $return = array('success' => 1);
 
