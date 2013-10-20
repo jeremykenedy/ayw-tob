@@ -23,13 +23,17 @@ if ($game->status == 'waiting'){ ?>
 							}?>
 							</ol>
 						</div>
+						<div class="row visible-xs"></div>
 						<div class="row">
 							<span id="refresh_list" class="col-xs-6 col-xs-offset-3 btn btn-info btn-sm">refresh</span>
 						</div>
+						<div class="row visible-xs"></div>
 					</div>
 					<div class="col-md-6 col-xs-12">
 						<div class="row">
 							<span id="start_game" class="col-xs-6 col-md-12 btn btn-success btn-lg">start</span>
+						</div>
+						<div class="row visible-xs">
 						</div>
 						<div class="row">
 							<span id="quit_game" class="col-xs-6 col-md-12 btn btn-danger btn-lg">quit</span>
