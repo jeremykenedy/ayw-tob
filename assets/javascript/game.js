@@ -71,6 +71,9 @@ function stateWatcher(){
 			function(data){
 				if (data.success == 1){
 					state.val(data.state);
+					if (data.state != 'waiting'){
+						location.reload();
+					}
 				}
 				setTimeout('stateWatcher()', 3000);
 			},
