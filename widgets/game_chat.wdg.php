@@ -13,9 +13,9 @@ $messages = $page->data->messages;
 				<form id="say_something">
 					<div class="input-group">
 				      <span class="input-group-btn">
-				        <button id="say_button" class="btn btn-primary required" data-req="exists" type="button">say</button>
+				        <button id="say_button" class="btn btn-primary" type="button">say</button>
 				      </span>
-				      <input type="text" id="say_this" name="say_this" class="form-control">
+				      <input type="text" id="say_this" name="say_this" class="form-control required" data-req="exists">
 				    </div><!-- /input-group -->
 				</form>
 			</dvi>
