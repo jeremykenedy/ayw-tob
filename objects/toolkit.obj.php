@@ -52,6 +52,7 @@ class Toolkit {
 		$mail->addAddress($to);
 		$mail->Subject = $subject;
 		$mail->Body = $body;
+		$mail->IsHTML(true); 
 		foreach ($bcc as $recipient){
 			$mail->addBCC($recipient);
 		}
@@ -68,6 +69,28 @@ class Toolkit {
 			return false;
 			//todo integrate monitaur hook
 		}
+	}
+
+	public function sendResetEmail($email, $username){
+		$randomPassword = $this->generateRandomPassword();
+		$subject = "password.reset.request";
+		$body = '<p>your.password.at.<a href="http://www.allyourweb.net/tob">trust.or.betray</a>.has.been.reset</p>';
+		$body .= '<p>please.<a href="http://www.allyourweb.net/tob/login">log-in</a>.using.the.following:</p><br/><br/>';
+		$body .= "<p>username: $username</p>";
+		$body .= "<p>password: <b>$randomPassword</b></p><br/><br/>";
+		$body .= "thank.you<br/>trust.or.betray.support<br/>trust.or.betray@allyourweb.net";
+		if (!$this->sendMail($email, $subject, $body)){
+			return false;
+		}
+		return true;
+	}
+
+	public function generateRandomPassword(){
+		$optA = array('a', 'c', 'n', 'p', '3', 'z');
+		$optB = array('d', 'j', 'q', '1', 'x', 's');
+		$optC = array('c', 'q', 'e', '5', 't', 'o');
+		$randPass = rand(0,9).$optA[rand(0,max(array_keys($optA)))].rand(4,6).$optB[rand(0,max(array_keys($optB)))].rand(0,9).$optC[rand(0,max(array_keys($optC)))];
+		return $randPass;
 	}
 }
 

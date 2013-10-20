@@ -10,6 +10,7 @@ class Login_page extends BasePage{
 		$this->setTemplate("main");
 		$this->addStyle("login");
 		$this->addScript("login");
+		$this->addScript("reset_pw");
 		$this->pageTitle = "Log-In";
 		$this->name = "Log-In";
 

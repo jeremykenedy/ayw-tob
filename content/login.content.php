@@ -30,7 +30,7 @@
 				<?php echo $page->linkTo(array("href" => "signup"), 'create.account');?>
 			</div>
 			<div class="col-md-12 col-xs-12">
-				<?php echo $page->linkTo(array("href" => "resetpw"), 'forgot.password');?>
+				<?php echo $page->linkTo(array("data-toggle"=> "modal", "href" => "#reset_modal"), 'forgot.password');?>
 			</div>
 		</div>
 		<div class="row">
@@ -40,3 +40,4 @@
 		</div>
 	</form>
 </div>
+<?php $red->widget('reset_pw'); ?>
