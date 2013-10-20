@@ -11,11 +11,11 @@ $user = new User();
 try {
 	$nameCheck = $user->getByUsername($username);
 	$emailCheck = $user->getByEmail($email);
-	if (count((array)$nameCheck)){
+	if ($nameCheck->id){
 		$return['success'] = 0;
 		$return['message'] = 'username.already.in.use';
 	}
-	elseif (count((array)$emailCheck)){
+	elseif ($emailCheck->id){
 		$return['success'] = 0;
 		$return['message'] = 'email.already.in.use';
 	}
