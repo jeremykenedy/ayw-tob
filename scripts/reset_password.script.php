@@ -6,7 +6,7 @@ $email = $_POST['email'];
 $red->fetchModel('user');
 $user = new User();
 
-$emailCheck = reset($user->getByEmail($email));
+$emailCheck = $user->getByEmail($email);
 
 if ($emailCheck->email){
 	if ($red->toolkit->sendResetEmail($emailCheck->email, $emailCheck->username, $emailCheck->id)){

@@ -5,16 +5,20 @@ var valid_text_color = '#0b263b';
 $(document).ready(function(){
 	$("#signout").on('click',function(e){
 		$.post(
-			"scripts/logout.script.php",
+			$("#url").val()+"scripts/logout.script.php",
 			"",
 			function(data){
 				if (data.success == 1){
-					window.location.href = "login";
+					window.location.href = $("#url").val()+"login";
 				}
 			},
 			"json"
 		);
-	})
+	});
+
+	$("#debugLabel").on('click', function(){
+		$("#debugCode").toggle();
+	});
 });
 
 function validateForm(formId){

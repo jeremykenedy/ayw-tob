@@ -22,7 +22,7 @@ class User extends Database{
 				 AND password = ?
 		";
 		$results = $this->query($sql, array($username, md5($password)));
-		return  $this->processResults($results);
+		return  reset($this->processResults($results));
 	}
 	
 	public function getById($id){
@@ -33,7 +33,7 @@ class User extends Database{
 				 WHERE id = ?
 		";
 		$results = $this->query($sql, array($id));
-		return  $this->processResults($results);
+		return  reset($this->processResults($results));
 	}
 
 	public function getByUsername($username){
@@ -44,7 +44,7 @@ class User extends Database{
 				 WHERE username = ?
 		";
 		$results = $this->query($sql, array($username));
-		return  $this->processResults($results);
+		return  reset($this->processResults($results));
 	}
 
 	public function getByEmail($email){
@@ -55,7 +55,7 @@ class User extends Database{
 				 WHERE email = ?
 		";
 		$results = $this->query($sql, array($email));
-		return  $this->processResults($results);
+		return reset($this->processResults($results));
 	}
 
 	public function updateUser($id, $username, $email){

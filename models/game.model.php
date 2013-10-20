@@ -22,7 +22,7 @@ class Game extends Database{
 				 WHERE
 				 	status = 'waiting'
 			 	AND
-			 		public = 1
+			 		public = 'public'
 		";
 		$results = $this->query($sql);
 		return  $this->processResults($results);
@@ -38,7 +38,7 @@ class Game extends Database{
 			 		id = ?
 		";
 		$results = $this->query($sql, array($id));
-		return  $this->processResults($results);
+		return  reset($this->processResults($results));
 	}
 
 	public function getByCode($code){
@@ -51,7 +51,7 @@ class Game extends Database{
 			 		code = ?
 		";
 		$results = $this->query($sql, array($code));
-		return  $this->processResults($results);
+		return  reset($this->processResults($results));
 	}
 
 	public function getByOwner($userId){

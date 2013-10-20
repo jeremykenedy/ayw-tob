@@ -6,7 +6,7 @@ $authenticated = 0;
 
 $red->fetchModel('user');
 $user = new User();
-$attempt = reset($user->getUser($username, $password));
+$attempt = $user->getUser($username, $password);
 
 if (isset($attempt->username)){
 	$attempt->addProp('authenticated', 1);

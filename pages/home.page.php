@@ -14,7 +14,9 @@ class Home_page extends BasePage{
 		$this->name = "Home Page";
 
 		//Data Sourcing
-		//$this->loadModel('event');
+		$this->loadModel('game');
+		$game = new Game();
+		$this->data->addProp('joinable', $game->getJoinable());
 
 		// finalize and show
 		$this->addContent("home");
