@@ -5,7 +5,7 @@ $red->fetchModel('game');
 $game = new Game();
 $games = $game->getJoinable();
 
-$return['html'] = "<option value="">select.a.game<option>";
+$return['html'] = "<option value="">select.a.game</option>";
 foreach($games as $gme){
 	$return['html'] .= '<option value="'.$gme->code.'">'.$gme->name.'</option>';
 }
