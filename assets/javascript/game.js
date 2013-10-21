@@ -65,13 +65,13 @@ function waitingRefresh(){
 			{game: $("#game_id").val(), player: $("#player_id").val()},
 			function(data){
 				if (data.success == 1){
-					state.val(data.state);
 					$("#players").html(data.playerHtml);
 					$("#chat_messages").html(data.messageHtml);
 					if (data.state != 'waiting'){
 						location.reload();
 					}
 				}
+				state.val(data.state);
 				updateTimeout = setTimeout('waitingRefresh()', 3000);
 			},
 			"json"
