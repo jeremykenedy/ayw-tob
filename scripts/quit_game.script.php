@@ -8,7 +8,7 @@ $red->fetchModel('player');
 $player = new Player();
 $player->removePlayer($playerId, $gameId);
 $red->fetchModel('game_message');
-	$message = new Message();
+	$message = new Game_message();
 	$message->writeMessage($gameId, $playerId, '**left.the.game**');
 
 $return = array('success' => 1);

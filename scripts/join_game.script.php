@@ -12,7 +12,7 @@ if ($gameCheck->status == 'waiting'){
 	$return['success'] = 1;
 	$return['gameURL'] = 'http://'.SERVER.ROOT_NODE.'game/'.$code;
 	$red->fetchModel('game_message');
-	$message = new Message();
+	$message = new Game_message();
 	$message->writeMessage($gameCheck->id, $red->data->session->user->id, '**joined.the.game**');
 }
 
