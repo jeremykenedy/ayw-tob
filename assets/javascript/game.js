@@ -59,7 +59,7 @@ function quitGame(){
 function waitingRefresh(){
 	var state = $("#game_state");
 	clearTimeout(updateTimeout);
-	if ( state.val() == 'waiting'){
+	if (state.val() == 'waiting'){
 		$.post(
 			$("#url").val()+"scripts/update_waiting.script.php",
 			{game: $("#game_id").val(), player: $("#player_id").val()},
@@ -76,6 +76,9 @@ function waitingRefresh(){
 			},
 			"json"
 		);
+	}
+	else {
+		location.reload();
 	}
 }
 
