@@ -29,7 +29,7 @@ foreach ($messages as $msg){
 	$return['messageHtml'] .=	'</div>';
 }
 
-if ($return['state'] != "" && $return['playerHtml'] != "" && $return['messageHtml'] != ""){
+if ($return['state'] != "" && $return['playerHtml'] != ""){
 	$return['success'] = 1;
 }
 else {
