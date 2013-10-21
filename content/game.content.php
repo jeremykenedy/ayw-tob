@@ -8,9 +8,11 @@ if ($player->id){
 	$authorized = true;
 }
 
+$host = false;
 $owner = 'no';
 if ($red->data->session->user->id == $game->owner_fk){
 	$owner = 'yes';
+	$host = true;
 }
 
 if ($authorized){
@@ -48,7 +50,7 @@ if ($authorized){
 						</div>
 						<div class="col-md-6 col-xs-12">
 							<?php
-							if ($owner){ ?>
+							if ($host){ ?>
 							<div class="row">
 								<span id="start_game" class="col-xs-6 col-md-12 btn btn-success btn-lg">start</span>
 							</div>
