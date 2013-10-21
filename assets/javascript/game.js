@@ -26,8 +26,10 @@ $(document).ready(function(){
 	$("#say_button").on("click", function(){
 		writeMessage();
 	});
-
-	waitingRefresh();
+	if ($("#game_state").val() == 'waiting'){
+		waitingRefresh();	
+	}
+	
 });
 
 function closeGame(){
