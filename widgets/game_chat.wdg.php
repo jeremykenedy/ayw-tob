@@ -5,7 +5,7 @@ $game = $page->data->currentGame;
 $messages = $page->data->messages;
 ?>
 
-<div class="container visible-md visible-lg visible-xl">
+<div class="container">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4 col-xs-12">
 			<h4>game.chat</h4>

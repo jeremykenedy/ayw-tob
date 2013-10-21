@@ -41,7 +41,7 @@ if ($authorized){
 								</ol>
 							</div>
 							<div class="row visible-xs visible-sm"></div>
-							<div class="row visible-xs visible-sm">
+							<div class="row">
 								<span id="refresh_list" class="col-xs-6 col-xs-offset-3 btn btn-info btn-sm">refresh</span>
 							</div>
 							<div class="row visible-xs visible-sm"></div>
@@ -64,7 +64,7 @@ if ($authorized){
 	<?php
 	}
 	if ($game->status == 'playing'){
-		$red->widget('game_chat');
+		$red->widget('game_chat')
 	}
 	if ($game->status == 'closed'){ ?>
 		<div class="container">
