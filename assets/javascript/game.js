@@ -74,7 +74,7 @@ function waitingRefresh(){
 					}
 				}
 				state.val(data.state);
-				updateTimeout = setTimeout('waitingRefresh()', 3000);
+				updateTimeout = setTimeout('waitingRefresh()', 2200);
 			},
 			"json"
 		);
