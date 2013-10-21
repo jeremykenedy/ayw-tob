@@ -47,9 +47,13 @@ if ($authorized){
 							<div class="row visible-xs visible-sm"></div>
 						</div>
 						<div class="col-md-6 col-xs-12">
+							<?php
+							if ($owner){ ?>
 							<div class="row">
 								<span id="start_game" class="col-xs-6 col-md-12 btn btn-success btn-lg">start</span>
 							</div>
+							<?php
+							} ?>
 							<div class="row visible-xs visible-sm">
 							</div>
 							<div class="row">
