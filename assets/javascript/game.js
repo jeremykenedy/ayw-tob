@@ -34,6 +34,10 @@ $(document).ready(function(){
 	$("#start_game").on('click', function(){
 		startGame();
 	});
+
+	if ($("#game_state").val() == 'playing'){
+		setTimeout('location.reload()', 20000);	
+	}
 	
 });
 
