@@ -7,6 +7,9 @@ $gameId = $_POST['game'];
 $red->fetchModel('player');
 $player = new Player();
 $player->removePlayer($playerId, $gameId);
+$red->fetchModel('game_message');
+	$message = new Message();
+	$message->writeMessage($gameId, $playerId, '**left.the.game**');
 
 $return = array('success' => 1);
 echo json_encode($return);
