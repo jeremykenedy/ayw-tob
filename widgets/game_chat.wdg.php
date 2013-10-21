@@ -18,19 +18,12 @@ $messages = $page->data->messages;
 				      <input type="text" id="say_this" name="say_this" class="form-control required" data-req="exists">
 				    </div><!-- /input-group -->
 				</form>
-			</dvi>
+			</div>
+			<div class="row"></div>
 			<div id="chat_messages" class="row">
 			<?php foreach($messages as $message){ ?>
 				<div class="well well-sm">
-					<div class="col-xs-3">
-						<strong><?php echo date('H:i:s',$message->time);?></strong>
-					</div>
-					<div class="col-xs-3">
-						<?php echo $message->name;?>
-					</div>
-					<div class="col-xs-6">
-						<?php echo $message->content;?>
-					</div>
+					<?php echo date('H:i:s', $message->time); ?> - <?php echo $message->name;?> - <?php echo $message->content;?>
 				</div>
 			<?php
 			} ?>

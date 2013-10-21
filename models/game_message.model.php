@@ -13,11 +13,11 @@ class Game_message extends Database{
 					gm.message as content,
 					u.username as name
 				 FROM 
-				 	game_messages
+				 	game_messages gm
 			 	LEFT JOIN
 			 		users u
 		 		ON
-		 			gm.game_fk = u.id
+		 			gm.user_fk = u.id
 			 	WHERE
 			 		game_fk = ?
 		 		ORDER BY
@@ -30,7 +30,7 @@ class Game_message extends Database{
 	public function writeMessage($gameId, $playerId, $message){
 		$sql = "
 				INSERT INTO
-					games
+					game_messages
 						(game_fk, user_fk, time, message)
 				VALUES
 					(?, ?, ?, ?)

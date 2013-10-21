@@ -1,4 +1,4 @@
-var chatTimeout;
+var updateTimeout;
 
 $(document).ready(function(){
 	$("#refresh_list").on('click', function(){
@@ -18,7 +18,8 @@ $(document).ready(function(){
 		}
 	});
 
-	$("#say_something").on("submit", function(){
+	$("#say_something").on("submit", function(e){
+		e.preventDefault();
 		writeMessage();
 	});
 
@@ -26,9 +27,7 @@ $(document).ready(function(){
 		writeMessage();
 	});
 
-	playerRefresh();
-	stateWatcher();
-	refreshChat();
+	waitingRefresh();
 });
 
 function closeGame(){
@@ -57,36 +56,23 @@ function quitGame(){
 	);
 }
 
-function playerRefresh(){
-	if ($("#game_state").val() == 'waiting'){
-		$.post(
-			$("#url").val()+"scripts/update_players.script.php",
-			{game: $("#game_id").val()},
-			function(data){
-				if (data.success == 1){
-					$("#players").html(data.html);
-				}
-				setTimeout('playerRefresh()', 5000);
-			},
-			"json"
-		);
-	}
-}
-
-function stateWatcher(){
+function waitingRefresh(){
 	var state = $("#game_state");
+	clearTimeout(updateTimeout);
 	if ( state.val() == 'waiting'){
 		$.post(
-			$("#url").val()+"scripts/update_state.script.php",
-			{game: $("#game_id").val()},
+			$("#url").val()+"scripts/update_waiting.script.php",
+			{game: $("#game_id").val(), player: $("#player_id").val()},
 			function(data){
 				if (data.success == 1){
 					state.val(data.state);
+					$("#players").html(data.playerHtml);
+					$("#chat_messages").html(data.messageHtml);
 					if (data.state != 'waiting'){
 						location.reload();
 					}
 				}
-				setTimeout('stateWatcher()', 3000);
+				updateTimeout = setTimeout('waitingRefresh()', 3000);
 			},
 			"json"
 		);
@@ -98,11 +84,11 @@ function writeMessage(){
 	if (validateForm('say_something')){
 		$.post(
 			$("#url").val()+"scripts/write_message.script.php",
-			{playerId: $("#player_id").val(), gameId: $("$game_id").val(), message: message.val()},
+			{playerId: $("#player_id").val(), gameId: $("#game_id").val(), message: message.val()},
 			function(data){
 				if (data.success == 1){
 					message.val("");
-					refreshChat();
+					waitingRefresh();
 				}
 			},
 			"json"
@@ -110,17 +96,3 @@ function writeMessage(){
 	}
 }
 
-function refreshChat(){
-	clearTimeout(chatTimeout);
-	$.post(
-		$("url").val()+"scripts/update_messages.script.php",
-		{game: $("#game_id")}
-		function(data){
-			if (data.success == 1){
-				$("#chat_messages").html(data.html);
-			}
-			chatTimeout = setTimeout("refreshChat()", 2000);
-		},
-		"json"
-	);
-}
