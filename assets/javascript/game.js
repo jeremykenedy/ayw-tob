@@ -26,9 +26,14 @@ $(document).ready(function(){
 	$("#say_button").on("click", function(){
 		writeMessage();
 	});
+	
 	if ($("#game_state").val() == 'waiting'){
 		waitingRefresh();	
 	}
+
+	$("#start_game").on('click', function(){
+		startGame();
+	});
 	
 });
 
@@ -94,6 +99,25 @@ function writeMessage(){
 				if (data.success == 1){
 					message.val("");
 					waitingRefresh();
+				}
+			},
+			"json"
+		);
+	}
+}
+
+function startGame(){
+	if ($('#players li').length < 4){
+		alert('you.must.have.at.least.4.players');
+		return;
+	}
+	if (confirm('are.you.ready?')){
+		$.post(
+			$("#url").val()+"scripts/start_game.script.php",
+			{game: $("#game_id").val()},
+			function(data){
+				if (data.success ==1){
+					location.reload();
 				}
 			},
 			"json"

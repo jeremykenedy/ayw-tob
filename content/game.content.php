@@ -69,7 +69,9 @@ if ($authorized){
 		<?php $red->widget('game_chat');?>
 	<?php
 	}
-	if ($game->status == 'playing'){
+	if ($game->status == 'playing'){?>
+		<h4>game.in.progress</h4>
+		<?php
 		$red->widget('game_chat');
 	}
 	if ($game->status == 'closed'){ ?>
