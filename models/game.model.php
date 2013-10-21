@@ -91,4 +91,17 @@ class Game extends Database{
 		$success = $this->execute($sql, array($gameId));
 		return $success;
 	}
+
+	public function startGame($gameId){
+		$sql = "
+				UPDATE
+					games
+				SET
+					status = 'playing'
+				WHERE
+					id = ?
+		";
+		$success = $this->execute($sql, array($gameId));
+		return $success;
+	}
 }

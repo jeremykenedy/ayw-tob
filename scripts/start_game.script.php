@@ -5,7 +5,7 @@ $gameId = $_POST['game'];
 
 $red->fetchModel('game');
 $game = new Game();
-$game->updateStatus($gameId, 'playing');
+$game->startGame($gameId, 'playing');
 
 $red->fetchModel('game_message');
 $message = new Game_message();
