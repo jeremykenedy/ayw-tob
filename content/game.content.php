@@ -41,7 +41,7 @@ if ($authorized){
 								</ol>
 							</div>
 							<div class="row visible-xs visible-sm"></div>
-							<div class="row">
+							<div class="row visible-xs">
 								<span id="refresh_list" class="col-xs-6 col-xs-offset-3 btn btn-info btn-sm">refresh</span>
 							</div>
 							<div class="row visible-xs visible-sm"></div>
