@@ -64,7 +64,7 @@ if ($authorized){
 	<?php
 	}
 	if ($game->status == 'playing'){
-		$red->widget('game_chat')
+		$red->widget('game_chat');
 	}
 	if ($game->status == 'closed'){ ?>
 		<div class="container">
