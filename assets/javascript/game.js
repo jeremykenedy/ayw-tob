@@ -36,7 +36,7 @@ $(document).ready(function(){
 	});
 
 	if ($("#game_state").val() == 'playing'){
-		setTimeout('location.reload()', 20000);	
+		setTimeout('location.reload()', 60000);	
 	}
 	
 });
