@@ -1,7 +1,7 @@
 <?php
 class Game extends Database{
 	
-	const ALL_FIELDS = "id, code, name, created, status, owner_fk, public";
+	const ALL_FIELDS = "id, code, name, created, status, owner_fk, public, turn";
 
 	public function getAll(){
 		$sql = "
@@ -71,9 +71,9 @@ class Game extends Database{
 		$sql = "
 				INSERT INTO
 					games
-						(code, name, created, status, owner_fk, public)
+						(code, name, created, status, owner_fk, public, turn)
 				VALUES
-					(?, ?, ?, ?, ?, ?)
+					(?, ?, ?, ?, ?, ?, 0)
 		";
 		$success = $this->execute($sql, array($code, $name, $created, $status, $owner_fk, $public));
 		return $success;
